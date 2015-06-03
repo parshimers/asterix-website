@@ -2,4 +2,4 @@
 title: About AsterixDB
 ---
 
-WIP
+* WIP
