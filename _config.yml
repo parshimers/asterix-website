@@ -1,12 +1,14 @@
-url: https://parshimers.github.io
+url: https://parshimers.github.io/asterix-website/
 
 name: "Apache AsterixDB"
 
-asterixdb.stable.version: 0.8.6
-asterixdb.unstable.version: 0.8.7-SNAPSHOT
-stable.download.url: "http://asterixdb.ics.uci.edu/download/0.8.6/asterix-installer-0.8.6-binary-assembly.zip"
-documentation.base.url: "http://asterixdb.ics.uci.edu/documentation/"
-unstable.docs.base.url: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/site/asterix-doc/"
+STABLE_VERSION: 0.8.6
+UNSTABLE_VERSION: 0.8.7-SNAPSHOT
+STABLE_DOWNLOAD_URL: "http://asterixdb.ics.uci.edu/download/0.8.6/asterix-installer-0.8.6-binary-assembly.zip"
+UNSTABLE_DOWNLOAD_URL: "http://asterixdb.ics.uci.edu/download/0.8.6/asterix-installer-0.8.6-binary-assembly.zip"
+DOCS_BASE_URL: "http://asterixdb.ics.uci.edu/documentation"
+UNSTABLE_DOCS_BASE_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/site/asterix-doc"
+ICS_DOWNLOAD_BASE_URL: "https://asterixdb.ics.uci.edu/download"
 
 # Build settings
 defaults:
@@ -25,7 +27,6 @@ kramdown:
     hard_wrap: false
 
 redcarpet:
-  # https://help.github.com/articles/github-flavored-markdown
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink",
                "tables", "with_toc_data", "strikethrough", "superscript",
                "lax_spacing"]

@@ -4,8 +4,8 @@ layout: default
 ---
 
 <div class="row">
- <div class="col-md-12 col-centered">
-   <div class="well"><p class="lead" markdown="1">__Apache AsterixDB__ is an open source Big Data Management System (BDMS).</p>
+ <div class="col-md-9 col-centered">
+   <div class="well text-center"><p class="lead" markdown="1">__Apache AsterixDB__ is an open source Big Data Management System (BDMS).</p>
    </div>
  </div>
 </div>
@@ -50,15 +50,15 @@ Give your data as much or as little schema as you want, in one system.
 ### Download
 You can download the latest stable release here.
 
-<p><a class="btn btn-md btn-info" href="{{ site.stable.download.url }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }}</a></p>
+<p><a class="btn btn-md btn-info" href="{{ site.STABLE_DOWNLOAD_URL }}" role="button">Download AsterixDB {{ site.STABLE_VERSION }}</a></p>
 
-See the installation [guide]({{site.documentation.base.url}}/install.html), and check out [AsterixDB 101]({{site.documentation.base.url}}/aql/primer.html) to start
+See the installation [guide]({{ site.DOCS_BASE_URL }}/install.html), and check out [AsterixDB 101]({{ site.DOCS_BASE_URL }}/aql/primer.html) to start using AsterixDB right away.
 
 </div>
 <div class="col-sm-6" markdown="1">
 ### Community
-If you have any questions, please feel free to ask on our [users](mailto:users@asterixdb.incubator.apache.org) mailing list, which you can subscribe to by sending an empty email to users-subscribe@asterixdb.incubator.apache.org.
+If you have any questions, please feel free to ask on our [users](mailto:users@asterixdb.incubator.apache.org) mailing list, which you can subscribe to by sending an empty email to [users-subscribe](users-subscribe@asterixdb.incubator.apache.org).
 
-If you would like to know more about how to contribute to AsterixDB or any of its related components, head on over to the [Contributing](/contributing.html) page to learn more.
+If you would like to know more about how to contribute to AsterixDB or any of its related components, head on over to the [Contributing](/dev-setup.html) page to learn more.
 </div>
 </div>

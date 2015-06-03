@@ -10,6 +10,70 @@ title: Contributing to AsterixDB
 
 ---
 
+## Introduction
+We warmly welcome any contributions to the AsterixDB or related (Hyracks, Pregelix) projects. A great way to start contributing is to pick a bug labelled starter in JIRA and submit a patch for it, to get acquainted with our codebase and development process.
+
+---
+
+## Setting up an Asterix Development environment in Eclipse
+
+### Prerequisites
+  * A suitable \*nix environment (Linux, OSX)
+  * JDK 1.7+
+  * A relatively recent version of Eclipse
+
+### Steps
+
+1. Check out Hyracks and Asterix master in two folders via git in the command line. Assume that the path is `$HOME/workspace`.
+
+            cd $HOME/workspace/
+            git clone https://code.google.com/p/asterixdb/
+            git clone https://code.google.com/p/hyracks/
+
+    You will now have `$HOME/workspace/asterixdb/` and `$HOME/workspace/hyracks/`.
+
+2. Go to the hyracks and install it's artifacts to the local Maven repository by executing the following commands:
+
+
+            cd $HOME/workspace/hyracks/
+            mvn install -DskipTests
+
+
+3. Go to the asterixdb folder and perform the same action:
+
+             cd $HOME/workspace/asterixdb/asterix-maven-plugins/
+             mvn install -DskipTests
+             cd $HOME/workspace/asterixdb/
+             mvn install -DskipTests
+
+4. In Eclipse, import hyracks as an existing Maven Project.
+* `File -> Import -> Maven -> Existing Maven Projects -> Next`
+* Specify the Root directory as `$HOME/workspace/hyracks` and then click Next until Finish is enabled.
+* If Eclipse tries to install the `m2e` (Maven To Eclipse) connector, let it do so.
+* There might be some plugin errors; however, that is not a big deal. Wait until the job finishes.
+* Then, click Finish.
+
+5. Then import asterixdb as an existing Maven Project.
+* `File -> Import -> Maven -> Existing Maven Projects -> Next`
+* Specify root directory as `$HOME/workspace/asterixdb` and then click Next until Finish is enabled.
+* Eclipse may try installing `m2e` or other plugins again; let it do so.
+* Then, click Finish.
+6. Fix Eclipse's build path to include compile-time generated sources.
+* Right click the project where a red X mark is shown(e.g. `asterix-algebra`. Then resolve by applying the following:
+  * Right click asterix-algebra. Click Build Path and Configure Build Path. Click Add Folder.
+  * Under the `target -> generated sources`, check the parent folder of the `edu` folder and click OK.
+  * For example, if the directory structure is "target - generated-sources - javacc - edu - uci ...", check the javacc directory and click OK. Then X mark will dissapear.
+* Repeat this step to all projects which show a red X mark except "asterix-fuzzyjoin" and "asterix-transactions".
+* It may be the case that only "asterix-algebra" and "asterix-runtime" will require these steps.
+7. Set up Eclipse code formatting rules
+* Download files [AsterixCodeFormatProfile.xml](http://wiki.asterixdb.googlecode.com/git/AsterixCodeFormatProfile.xml) [AsterixCleanupFormatProfile.xml](http://wiki.asterixdb.googlecode.com/git/AsterixCleanupFormatProfile.xml)
+* Import profiles into Eclipse
+  * Preferences -> Java -> Code style -> Formatter -> Import -> Select AsterixCodeFormatProfile.xml
+  * Preferences -> Java -> Code style -> Clean up -> Import -> Select AsterixCleanupFormatProfile.xml
+  * Preferences -> Java -> Editor -> Save actions -> Perform the selected action on save -> Format source code
+
+---
+
 ## Signing Up for Gerrit
 
 You should only need to perform the following steps once.
@@ -156,45 +220,3 @@ this feature, perform the following steps:
   1. Now, manually trigger the dependent change in Jenkins (see previous section for details)
 
 ---
-
-## Guide to commiting patches
-
-This document describes how to submit a change on Gerrit safely, and then push it to ASF git. 
-
-### Submitting patches in Gerrit
-
-Once a patch set is `+2 Code Review` in Gerrit, as well as `+1 Verified`, it can be submitted by a committer.
-In the simplest case, this simply means for someone who is authorized (any Apache committer) to click the 'Submit Patchset ...' button in the Gerrit web interface. However there is one case right now where care must be exercised in submitting a patch.
-
-#### Patches which span Hyracks and AsterixDB
-
-These patches require special care to submit. Any AsterixDB patch that requires a topic in Gerrit to verify is of this type.  In general this is the process:
-
-1. Ensure that both patches are based on the current HEAD of master (there should be no 'Rebase Change' button). This will require reviewers to re-apply their +2, because it changes the content of the patch.
-2. Submit the Hyracks patch.
-3. If all went well, submit the AsterixDB patch.
-
-
-__IMPORTANT__: Do *not* attempt to merge a patch that needs changes in Hyracks and AsterixDB while it needs rebasing. If the patch to Hyracks succeeds with a clean rebase, but the AsterixDB change requires a manual merge, you will leave master in a broken state!
-
-### Pushing merged patches from Gerrit to ASF git
-
-Once a change is submitted and merged in Gerrit, the job is only partially done. The patch is committed in Gerrit's local repository, but it is not present in the ASF git repository. This step must be done manually, preferably by the author of the patch (if they are a committer), or by one of the reviewers (if the patch is authored by a non-committer). This is simply a matter of fetching Gerrit's master branch, and then pushing those changes to the ASF git repo. The git-asf script automates and simplifies this process.
-
-#### Prerequisites
-
-Before we begin, some prerequisites/notes:
-
-- You should have git-gerrit and git-asf installed (available [here](http://github.com/ceejatec/git-gerrit)) and set up properly.
-
-- We need the SHA1 hash of the commit we want to push to ASF. This is visible in the Gerrit Web UI as a comment when a change is merged ("Change has been successfully cherry-picked as ..."). 
-
-- You should have the credentials for pushing to the ASF repository set up in a .netrc file or stored in git. See [here](https://git-wip-us.apache.org/#committers-getting-started) for more details on setting up git with your Apache credentials.
-
-#### Pushing the change(s)
-
-Once the above is fulfilled, we can begin. Let `$SHA1` be the actual SHA1 hash of the commit we want to transmit from Gerrit to the ASF repo.
-
-0. `git asf commit $SHA1`
-
-That's all there is to it! If the patch spanned both Hyracks and AsterixDB, be sure to perform this process in both repositories.
