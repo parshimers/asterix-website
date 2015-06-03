@@ -59,6 +59,6 @@ See the installation [guide]({{ site.DOCS_BASE_URL }}/install.html), and check o
 ### Community
 If you have any questions, please feel free to ask on our [users](mailto:users@asterixdb.incubator.apache.org) mailing list, which you can subscribe to by sending an empty email to [users-subscribe](users-subscribe@asterixdb.incubator.apache.org).
 
-If you would like to know more about how to contribute to AsterixDB or any of its related components, head on over to the [Contributing](/dev-setup.html) page to learn more.
+If you would like to know more about how to contribute to AsterixDB or any of its related components, head on over to the [Contributing]({{ site.url }}dev-setup.html) page to learn more.
 </div>
 </div>
