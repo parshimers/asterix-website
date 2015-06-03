@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+
+    <title>Contributing to AsterixDB</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <div class="container theme-showcase" role="main">
+  <div class="masthead">
+    <p class="lead">
+        <a href="/index.html"><img src="/img/asterixdb.png" style="height:75px; width:auto; vertical-align:bottom; margin-top:10px;"/></a>
+    </p>
+</div>
+
+<nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html">AsterixDB</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/download.html">Download</a></li>
+              <li><a href="/index.html">Documentation</a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/community.html">Community</a></li>
+              <li><a href="/contributing.html">Contributing</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+
+  <div class="row">
+<div class="col-md-8 col-centered">
+<h2>Contributing to AsterixDB</h2>
+<hr />
+
+<ul id="markdown-toc">
+  <li><a href="#signing-up-for-gerrit">Signing Up for Gerrit</a></li>
+  <li><a href="#configuring-your-local-working-environment-for-gerrit">Configuring your local working environment for Gerrit</a>    <ul>
+      <li><a href="#one-time-tasks">One-time tasks</a></li>
+      <li><a href="#once-per-repository-tasks">Once-per-repository tasks</a></li>
+    </ul>
+  </li>
+  <li><a href="#making-changes---working-method">Making Changes - working method</a></li>
+  <li><a href="#making-more-changes">Making More Changes</a></li>
+  <li><a href="#using-jenkins-with-gerrit">Using Jenkins with Gerrit</a>    <ul>
+      <li><a href="#verification">Verification</a></li>
+      <li><a href="#retrigggering-builds-and-triggering-builds-manually">Retrigggering builds and triggering builds manually</a></li>
+      <li><a href="#cross-project-dependencies">Cross-project Dependencies</a></li>
+    </ul>
+  </li>
+  <li><a href="#guide-to-commiting-patches">Guide to commiting patches</a>    <ul>
+      <li><a href="#submitting-patches-in-gerrit">Submitting patches in Gerrit</a></li>
+      <li><a href="#pushing-merged-patches-from-gerrit-to-asf-git">Pushing merged patches from Gerrit to ASF git</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="signing-up-for-gerrit">Signing Up for Gerrit</h2>
+
+<p>You should only need to perform the following steps once.</p>
+
+<p>Our Gerrit server is <a href="https://asterix-gerrit.ics.uci.edu/">here</a></p>
+
+<ol>
+  <li>Visit the above URL, and click on “Register” in the upper right.</li>
+  <li>Gerrit uses OpenID; you may create an account using any OpenID provider, or with a Yahoo! account.</li>
+  <li>Click on “Sign in with a Yahoo! ID”. You will be taken to a page to log in to Yahoo!.</li>
+  <li>From there, you will get a page asking you to allow asterix-gerrit.ics.uci.edu to access your email and basic information.  Approve this request.</li>
+  <li>You will be directed back to Gerrit to complete the account signup. Make sure to fill out this page! It is necessary to allow you to push code changes to Gerrit for review.</li>
+  <li>For “Full Name” and “Preferred Email”, enter what you like. If you would like to register a different email address such as an @uci.edu address, you may do so. This is where Gerrit will send you notifications about code review requests, voting, and so on.</li>
+  <li>For “Select a unique username”, choose a short alphanumeric ID. This will be your ssh username for git access. Be sure to click “Select Username” to verify that the name is unique and allowed.</li>
+  <li>Also provide a ssh public key here. There is information on the page on creating one if you do not have one. Click “Add” when done.<br />
+    * Note that you can create a new ssh public key just for Gerrit if you like; if you do so you will need to modify your .ssh/config file to ensure the right key is selected.</li>
+  <li>Click “Continue” at the bottom of the page.</li>
+  <li>
+    <p>Finally, verify that you have everything set up: From a command-line, type<br />
+<code>
+ssh -p 29418 username@asterix-gerrit.ics.uci.edu
+</code></p>
+  </li>
+  <li>You should see</li>
+</ol>
+
+<div class="highlight"><pre><code>  ****    Welcome to Gerrit Code Review    ****
+
+  Hi Full Name, you have successfully connected over SSH.
+
+  Unfortunately, interactive shells are disabled.
+  To clone a hosted Git repository, use:
+
+  git clone ssh://username@asterix-gerrit.ics.uci.edu:29418/REPOSITORY_NAME.git
+
+</code></pre></div>
+
+<p>At this point, please send an email to Chris or Ian, specifying the email address of your new account, and ask to be added to the “AsterixDB Devs” group. You may push change proposals to Gerrit, and vote +1/-1 Code Review on any proposals without being in AsterixDB Devs, but you cannot vote +2 on anything to allow a change to be merged.</p>
+
+<hr />
+
+<h2 id="configuring-your-local-working-environment-for-gerrit">Configuring your local working environment for Gerrit</h2>
+
+<h3 id="one-time-tasks">One-time tasks</h3>
+
+<ol>
+  <li>At the command-line, run the following. Replace “username” with the user name you chose in step 7 above.<br />
+<code>
+git config --global gerrit.url ssh://username@asterix-gerrit.ics.uci.edu:29418/
+</code></li>
+  <li>Download my “git-gerrit” utility library:<br />
+<code>
+git clone https://github.com/ceejatec/git-gerrit
+</code></li>
+  <li>Ensure that the <code>git-gerrit/git-gerrit</code> script is on your PATH. You could copy it to somewhere, but it would be best to leave it inside the github clone so you can easily get updates.</li>
+</ol>
+
+<h3 id="once-per-repository-tasks">Once-per-repository tasks</h3>
+
+<ol>
+  <li>To work on (say) Asterix, first clone the Google Code repository (if you already have a local clone, great!).<br />
+<code>
+git clone https://code.google.com/p/asterixdb
+</code></li>
+  <li><code>cd</code> into the clone repo directory, and then run the following command to create the “gerrit” remote.<br />
+<code>
+git gerrit init
+</code></li>
+</ol>
+
+<hr />
+
+<h2 id="making-changes---working-method">Making Changes - working method</h2>
+
+<ol>
+  <li>When you want to start working on a bug, feature, etc, first make a local <code>git</code> branch. Never work directly on <code>master</code>! <code>master</code> should always be a pure mirror of <code>origin/master</code>, ie, Google Code.</li>
+</ol>
+
+<div class="highlight"><pre><code>git checkout -b my_branch
+</code></pre></div>
+
+<ol>
+  <li>Make your changes, test them, etc. Feel free to <code>git commit</code> as often as you like.</li>
+  <li><strong>Optional</strong>: If you like, you can push your branch up to Google Code, either to share it with others or as a backup. You may do this at whatever point in time you like.<br />
+<code>
+git push origin my_branch
+</code></li>
+  <li>Every so often, you should update your local <code>master</code> mirror, and then merge that onto your working branch. This will prevent your branch from falling too far out of date, and ensure that your code review proposals will merge successfully with <code>master</code>. There are a number of ways to do this, but <code>git-gerrit</code> provides a convenience function:<br />
+<code>
+git gerrit update
+</code></li>
+  <li>When you are ready to submit changes for code review, first ensure that you have committed everything locally that is necessary (<code>git status</code> should report “nothing to commit, working directory clean”). This is also a good time to update (see step 4). Then run:<br />
+<code>
+git gerrit submit
+</code></li>
+  <li>This will pop open your editor to invite you to create a good commit message. This will be the single commit message which will be the only one to appear in the project’s master git history. Take the time to make it clear. The editor will contain the log messages of everything you committed on your branch as a reminder, but generally you will want to delete all this and replace it with a comprehensive message. Also: As noted in the initial message, the last line of the buffer will contain a <code>Change-Id</code> field. Do not delete that line! It is used by Gerrit to identify this particular merge proposal.</li>
+  <li>When you save your commit message, git-gerrit will push all of the changes from your working branch up to Gerrit. Assuming no errors, you should see output similar to the following:<br />
+```<br />
+remote: Resolving deltas: 100% (1/1)<br />
+remote: Processing changes: new: 1, refs: 1, done    <br />
+remote: <br />
+remote: New Changes:<br />
+remote:   http://fulliautomatix.ics.uci.edu:8443/30<br />
+remote: <br />
+To ssh://ceej@fulliautomatix.ics.uci.edu:29418/ceej-gerrit-test
+    <ul>
+      <li>[new branch]      HEAD -&gt; refs/for/master<br />
+```</li>
+    </ul>
+  </li>
+  <li>That URL under “New Changes” is your code review! Send it to others to request reviews.</li>
+  <li>If you get any negative code reviews and need to make changes, you can just repeat steps 2 - 6 of the working method. Your local branch will still have all the history you put there, if you need to revert changes or look back and see what you did, etc.</li>
+  <li>When you repeat step 6, you will notice two things: First, git-gerrit keeps the change message for you, including the Change-Id, so you don’t have to re-invent it every time. Second, the output from <code>git gerrit submit</code> will not include the URL of the review this time. I’m not sure why; I wish it did. But if you re-visit the old URL in your browser, you should see an additional “Patch Set” containing your revised changes for people to review.</li>
+</ol>
+
+<h2 id="making-more-changes">Making More Changes</h2>
+
+<p>You may have as many feature branches as you want locally, and each may be at any point in the review cycle.</p>
+
+<p>Once you are done with a change (that is, it has been Code Reviewed and approved in Gerrit and merged), it is probably best to start work on the next big thing on a new branch. However, git-gerrit attempts to be smart if you choose to re-use a branch. For example, it should notice if the “current” Change-Id for a branch has been merged to master, and it will create a new Change-Id and a new fresh commit message the next time you run <code>git gerrit submit</code>.</p>
+
+<p>In that case, you may notice that the list of changes on the branch still contains older commits which have been merged. That is due to the unfortunate way Gerrit works; it requires squashing to a single git commit for review, which loses the association with the original commits in your history.</p>
+
+<p>It is also possible that you may want to re-use a branch and git-gerrit fails to notice that the older change has been merged - or perhaps the change was Abandoned on Gerrit and not merged, and you want to continue working on the same branch to create a new proposal. In this case, run<br />
+<code>
+git gerrit new
+</code><br />
+on your branch. This will force git-gerrit to create a new Change-Id and commit message the next time you run <code>git gerrit submit</code>.</p>
+
+<hr />
+
+<h2 id="using-jenkins-with-gerrit">Using Jenkins with Gerrit</h2>
+
+<h3 id="verification">Verification</h3>
+
+<p>As of right now, whenever a patch set is submitted to Gerrit (i.e. whenever a user performs ‘git gerrit submit’) are automatically picked up by Jenkins, which runs <code>mvn verify</code> to test the patch fully. Once the build finishes, Jenkins comments on the patchset and votes with the result (+1 for all tests passing, -1 for anything less). Ideally, and in most cases, verifocation of a patchset reqires no intervention. However there are a few exceptions to this as detailed below.</p>
+
+<h3 id="retrigggering-builds-and-triggering-builds-manually">Retrigggering builds and triggering builds manually</h3>
+
+<h4 id="retriggering">Retriggering</h4>
+<p>Occasionally, there are builds in which tests failed, but perhaps not for a reason that has anything to do with the proposed patch’s changes. For example, on occasion the Integration tests can have issues with ports on the build server already being bound. The simple work around to this is to try building again.</p>
+
+<p>One way to perform this is by simply visiting the link that is posted on Gerrit by Jenkins, and hitting the ‘Retrigger’ link on the left-hand side of the page. This will try retesting the build with the exact same parameters as last time, hopefully with a different result.</p>
+
+<h4 id="manual-trigger">Manual Trigger</h4>
+<p>Builds of Gerrit patches can also be fully manually triggered from Jenkins. This can be desirable if a change is now dependent on a Hyracks change (via the Topic field feature described below), or if the patch is a draft or is not triggered automatically for any other reason. To manually trigger a build of a patchset, visit the Jenkins front-page, and click the ‘Query and Trigger Gerrit patches’ link. This should link to a page allowing you to manually trigger Gerrit patches. In the search field any query that can be searched in the Gerrit web interface can be used, but the default query of all open patchsets is likely fine. Hit the ‘Search’ button, and then click the checkbox that represents the patch that needs to be built. Then simply click ‘Trigger Selected’ and the patch will start building.</p>
+
+<h3 id="cross-project-dependencies">Cross-project Dependencies</h3>
+
+<p>It is sometimes the case that a change in one related project alters interfaces or expected results that an upstream project relies on. The converse can be true as well, such as an AsterixDB change that needs a Hyracks feature. In these sorts of situations, there is a mechanism to describe to Jenkins this dependenc of one project’s patchset to a particular Hyracks Change, by using the ‘Topic’ field in Gerrit. To utilize<br />
+this feature, perform the following steps:</p>
+
+<ol>
+  <li>First submit the Hyracks change which the upstream (AsterixDB,etc..) change depends on if you have not done so already</li>
+  <li>In the Hyracks change details on the Gerrit web interface, take note of the refspec in the <em>Download</em> field of the patchset details. It will look something like <code>refs/changes/07/207/1</code>. This is what uniquely identifies the Hyracks change in Gerrit.</li>
+  <li>Submit the dependent change now, if you have not done so already. In the Gerrit web interface, view the change’s details. In the upper left-hand corner, there will be an empty field in a table, labeled <code>Topic</code>, with a notepad icon right-justified in the second column of the table. Click the notepad Icon, and in the resulting dialog box, enter in the refspec (<code>refs/changes/07/207/1</code>) as the Topic value.</li>
+  <li>Now, manually trigger the dependent change in Jenkins (see previous section for details)</li>
+</ol>
+
+<hr />
+
+<h2 id="guide-to-commiting-patches">Guide to commiting patches</h2>
+
+<p>This document describes how to submit a change on Gerrit safely, and then push it to ASF git. </p>
+
+<h3 id="submitting-patches-in-gerrit">Submitting patches in Gerrit</h3>
+
+<p>Once a patch set is <code>+2 Code Review</code> in Gerrit, as well as <code>+1 Verified</code>, it can be submitted by a committer.<br />
+In the simplest case, this simply means for someone who is authorized (any Apache committer) to click the ‘Submit Patchset …’ button in the Gerrit web interface. However there is one case right now where care must be exercised in submitting a patch.</p>
+
+<h4 id="patches-which-span-hyracks-and-asterixdb">Patches which span Hyracks and AsterixDB</h4>
+
+<p>These patches require special care to submit. Any AsterixDB patch that requires a topic in Gerrit to verify is of this type.  In general this is the process:</p>
+
+<ol>
+  <li>Ensure that both patches are based on the current HEAD of master (there should be no ‘Rebase Change’ button). This will require reviewers to re-apply their +2, because it changes the content of the patch.</li>
+  <li>Submit the Hyracks patch.</li>
+  <li>If all went well, submit the AsterixDB patch.</li>
+</ol>
+
+<p><strong>IMPORTANT</strong>: Do <em>not</em> attempt to merge a patch that needs changes in Hyracks and AsterixDB while it needs rebasing. If the patch to Hyracks succeeds with a clean rebase, but the AsterixDB change requires a manual merge, you will leave master in a broken state!</p>
+
+<h3 id="pushing-merged-patches-from-gerrit-to-asf-git">Pushing merged patches from Gerrit to ASF git</h3>
+
+<p>Once a change is submitted and merged in Gerrit, the job is only partially done. The patch is committed in Gerrit’s local repository, but it is not present in the ASF git repository. This step must be done manually, preferably by the author of the patch (if they are a committer), or by one of the reviewers (if the patch is authored by a non-committer). This is simply a matter of fetching Gerrit’s master branch, and then pushing those changes to the ASF git repo. The git-asf script automates and simplifies this process.</p>
+
+<h4 id="prerequisites">Prerequisites</h4>
+
+<p>Before we begin, some prerequisites/notes:</p>
+
+<ul>
+  <li>
+    <p>You should have git-gerrit and git-asf installed (available <a href="http://github.com/ceejatec/git-gerrit">here</a>) and set up properly.</p>
+  </li>
+  <li>
+    <p>We need the SHA1 hash of the commit we want to push to ASF. This is visible in the Gerrit Web UI as a comment when a change is merged (“Change has been successfully cherry-picked as …”). </p>
+  </li>
+  <li>
+    <p>You should have the credentials for pushing to the ASF repository set up in a .netrc file or stored in git. See <a href="https://git-wip-us.apache.org/#committers-getting-started">here</a> for more details on setting up git with your Apache credentials.</p>
+  </li>
+</ul>
+
+<h4 id="pushing-the-changes">Pushing the change(s)</h4>
+
+<p>Once the above is fulfilled, we can begin. Let <code>$SHA1</code> be the actual SHA1 hash of the commit we want to transmit from Gerrit to the ASF repo.</p>
+
+<ol>
+  <li><code>git asf commit $SHA1</code></li>
+</ol>
+
+<p>That’s all there is to it! If the patch spanned both Hyracks and AsterixDB, be sure to perform this process in both repositories.</p>
+
+</div>
+</div>
+
+
+   <hr />
+
+   <footer>
+        <p>&copy; Copyright 2015 The Apache Software foundation. All Rights Reserved. </p>
+        <p>Apache AsterixDB, Apache, and the Apache feather logo are trademarks of the Apache Software Foundation</p>
+   </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

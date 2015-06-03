@@ -1,0 +1,13 @@
+body {
+    padding-top: 20px;
+  }
+  @media (max-width: 980px) {
+    body {
+      padding-top: 0;
+    }
+  }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
