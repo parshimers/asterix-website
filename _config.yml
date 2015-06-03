@@ -1,0 +1,32 @@
+url: https://parshimers.github.io
+
+name: "Apache AsterixDB"
+
+asterixdb.stable.version: 0.8.6
+asterixdb.unstable.version: 0.8.7-SNAPSHOT
+stable.download.url: "http://asterixdb.ics.uci.edu/download/0.8.6/asterix-installer-0.8.6-binary-assembly.zip"
+documentation.base.url: "http://asterixdb.ics.uci.edu/documentation/"
+unstable.docs.base.url: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/site/asterix-doc/"
+
+# Build settings
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: plain
+
+markdown: KramdownPygments
+highlighter: pygments
+
+kramdown:
+    toc_levels: 1..3
+    input: GFM
+    hard_wrap: false
+
+redcarpet:
+  # https://help.github.com/articles/github-flavored-markdown
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink",
+               "tables", "with_toc_data", "strikethrough", "superscript",
+               "lax_spacing"]
+
