@@ -17,12 +17,12 @@ layout: default
 ---
 <div class="row">
 <div class="col-sm-6" markdown="1">
-### Data Feeds
+### Data feeds and ingestion
 
 Process incoming live data, and store it- seamlessly.
 </div>
 <div class="col-sm-6" markdown="1">
-### Scalable Runtime
+### Scalable runtime
 
 AsterixDB is built on Hyracks, a parallel dataflow engine scale tested on hundreds of nodes.
 </div>
