@@ -5,7 +5,7 @@ name: "Apache AsterixDB"
 STABLE_VERSION: 0.8.6
 UNSTABLE_VERSION: 0.8.7-SNAPSHOT
 STABLE_DOWNLOAD_URL: "http://asterixdb.ics.uci.edu/download/0.8.6/asterix-installer-0.8.6-binary-assembly.zip"
-UNSTABLE_DOWNLOAD_URL: "http://asterixdb.ics.uci.edu/download/0.8.6/asterix-installer-0.8.6-binary-assembly.zip"
+UNSTABLE_DOWNLOAD_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/lastStableBuild/edu.uci.ics.asterix$asterix-installer/artifact/edu.uci.ics.asterix/asterix-installer/0.8.7-SNAPSHOT/asterix-installer-0.8.7-SNAPSHOT-binary-assembly.zip"
 DOCS_BASE_URL: "http://asterixdb.ics.uci.edu/documentation"
 UNSTABLE_DOCS_BASE_URL: "https://asterix-jenkins.ics.uci.edu/job/asterix-test-full/site/asterix-doc"
 ICS_DOWNLOAD_BASE_URL: "https://asterixdb.ics.uci.edu/download"
