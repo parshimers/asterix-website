@@ -9,7 +9,7 @@ Apache AsterixDB strives to support an open and transparent development process.
 {:toc }
 
 ### Mailing Lists
-Most AsterixDB and Hyracks related discussion takes place on these mailing lists.
+Most AsterixDB and Hyracks related discussion takes place on these mailing lists. To subscribe, send a blank email to the subscription address.
 
 {:.table .table-striped .table-bordered}
 | Name     | Address                                   | Subscribe Address                                | Archives |
