@@ -5,47 +5,47 @@ layout: default
 
 <div class="row">
  <div class="col-md-9 col-centered">
-   <div class="well text-center"><p class="lead" markdown="1">__Apache AsterixDB__ is an open source Big Data Management System (BDMS).</p>
+   <div class="well text-center"><p class="lead text-center" markdown="1">__Apache AsterixDB__ is an open source Big Data Management System (BDMS).</p>
    </div>
  </div>
 </div>
 
 
-<div class="row"><div class="col-md-3 col-centered" markdown="1">
+<div class="row"><div class="col-md-3 col-md-offset-4 text-center" markdown="1">
 ## Feature Overview
 </div></div>
 ---
 <div class="row">
-<div class="col-sm-6" markdown="1">
+<div class="col-sm-5" markdown="1">
 ### Data feeds and ingestion
-<div class="col-sm-3" markdown="1">
-<i class="fa fa-sitemap fa-5x"></i>
+<div class="col-sm-2" markdown="1">
+<i class="fa fa-sitemap fa-4x"></i>
 </div>
 Process incoming live data, and store it- seamlessly.
 </div>
-<div class="col-sm-6" markdown="1">
+<div class="col-sm-5" markdown="1">
 ### Scalable runtime
 
-<div class="col-sm-3" markdown="1">
-<i class="fa fa-signal fa-5x"></i>
+<div class="col-sm-2" markdown="1">
+<i class="fa fa-signal fa-4x"></i>
 </div>
 AsterixDB is built on Hyracks, a parallel dataflow engine scale tested on hundreds of nodes.
 </div>
 </div>
 
 <div class="row">
-<div class="col-sm-6" markdown="1">
+<div class="col-sm-5" markdown="1">
 ### External data
 
-<div class="col-sm-3" markdown="1">
-<i class="fa fa-database fa-5x"></i>
+<div class="col-sm-2" markdown="1">
+<i class="fa fa-database fa-4x"></i>
 </div>
 Query and index your data in HDFS, while still leveraging the power of AQL and speed of Hyracks.
 </div>
-<div class="col-sm-6" markdown="1">
+<div class="col-sm-5" markdown="1">
 ### Semi-structured data model
-<div class="col-sm-3" markdown="1">
-<i class="fa fa-code fa-3x"></i> <i class="fa fa-arrows-h fa-lg"></i> <i class="fa fa-table fa-3x"></i>
+<div class="col-sm-2" markdown="1">
+<i class="fa fa-table fa-4x"></i>
 </div>
 
 Give your data as much or as little schema as you want, in one system.
