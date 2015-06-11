@@ -65,3 +65,4 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |-----------------------------------------------------------------------------------|-------------------|---------------|
 |<img src="{{ site.url }}/img/team/chris_hillery.jpg" width="100" height="100">     | Chris Hillery     | Couchbase     |
 |<img src="{{ site.url }}/img/team/eugenia_gabrielova.jpg" width="100" height="100">| Eugenia Gabrielova| UC Irvine     |
+|<img src="{{ site.url }}/img/team/heri_ramampiaro.jpg" width="100" height="100">   | Heri Ramampiaro   | NTNU Trondheim     |

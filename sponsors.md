@@ -7,7 +7,7 @@ These are some of the companies and organizations that have helped fund the rese
 
 
 
-{:.table}
+{:.table .text-center}
 |
 |-------------------------------------------|-----------------------------------------------|
 | <img src=" {{ site.url }}/img/google.png" height= "120">| <img src=" {{ site.url }}/img/ebay.jpg" height= "120"> |
