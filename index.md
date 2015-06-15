@@ -17,6 +17,7 @@ layout: default
 ----
 
 </div></div>
+
 <div class="row" class="text-center">
 <div class="col-md-5 col-md-offset-1" markdown="1">
 <div class="panel panel-primary" markdown="1">
@@ -47,7 +48,7 @@ Process incoming live data, and store it- seamlessly.
 </div>
 
 <div class="col-md-10" markdown="1">
-   AsterixDB is built on Hyracks, a parallel dataflow engine scale tested on hundreds of nodes.
+AsterixDB is built on Hyracks, a parallel dataflow engine scale tested on hundreds of nodes.
 </div>
 
 </div>
@@ -68,8 +69,9 @@ Process incoming live data, and store it- seamlessly.
 </div>
 
 <div class="col-md-10" markdown="1">
-Query and index your data in HDFS, while still leveraging the power of AQL and speed of Hyracks.
+Query and index your data in HDFS alongside data stored in AsterixDB.
 </div>
+
 </div>
 </div>
 </div>
@@ -91,6 +93,7 @@ Give your data as much or as little schema as you want, in one system.
 </div>
 </div>
 </div>
+
 </div>
 
 
@@ -108,8 +111,10 @@ Give your data as much or as little schema as you want, in one system.
 <div class="col-md-10" markdown="1">
 AsterixDB uses state of the art indexing techniques to support high speed data ingestion.
 </div>
+
 </div>
 </div>
+
 </div>
 
 <div class="col-md-5" markdown="1">
@@ -119,7 +124,7 @@ AsterixDB uses state of the art indexing techniques to support high speed data i
 <div class="panel-body">
 
 <div class="col-md-2" markdown="1">
-<i class="fa fa-gear fa-4x pull-left pull-left"></i>
+<i class="fa fa-gear fa-4x pull-left"></i>
 </div>
 
 <div class="col-md-10" markdown="1">
@@ -129,15 +134,15 @@ AsterixDB extends JSON datatypes with support for spatial and temporal data.
 </div>
 </div>
 </div>
+
 </div>
+
 
 <div class="row">
 </div>
 
 
-
-
-<div class="row"><div class="col-md-5 col-centered text-center" style="padding-top: 50px;" markdown="1">
+<div class="row"><div class="col-md-5 col-centered text-center"  markdown="1">
 
 
 ## Getting Started
