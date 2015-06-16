@@ -45,6 +45,7 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |<img src="{{ site.url }}/img/team/murtadha_hubail.jpg" width="100" height="100">   | Murtadha Hubail   | UC Irvine     | mhubail       |
 |<img src="{{ site.url }}/img/team/ian_maxon.jpg" width="100" height="100">         | Ian Maxon         | UC Irvine     | imaxon        |
 |<img src="{{ site.url }}/img/team/jianfeng_jia.jpg"  width="100" height="100">     | Jianfeng Jia      | UC Irvine     | jianfeng      |
+|<img src="{{ site.url }}/img/team/taewoo_kim.jpg"  width="100" height="100">       | Taewoo Kim        | UC Irvine     | wangsaeu      |
 |<img src="{{ site.url }}/img/team/anonymous.jpg"     width="100" height="100">     | Cameron Samak     | UC Irvine     | csamak        |
 |<img src="{{ site.url }}/img/team/sattam_alsubaiee.png" width="100" height="100">  | Sattam Alsubaiee  | KACST Saudi Arabia         | salsubaiee    |
 |<img src="{{ site.url }}/img/team/steven_jacobs.jpg" width="100" height="100">     | Steven Jacobs     | UC Riverside  | sjaco002      |

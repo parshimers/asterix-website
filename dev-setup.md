@@ -27,10 +27,10 @@ We warmly welcome any contributions to the AsterixDB or related (Hyracks, Pregel
 1. Check out Hyracks and Asterix master in two folders via git in the command line. Assume that the path is `$HOME/workspace`.
 
             cd $HOME/workspace/
-            git clone https://code.google.com/p/asterixdb/
-            git clone https://code.google.com/p/hyracks/
+            git clone https://github.com/apache/incubator-asterixdb/
+            git clone https://github.com/apache/incubator-asterixdb-hyracks/
 
-    You will now have `$HOME/workspace/asterixdb/` and `$HOME/workspace/hyracks/`.
+    You will now have `$HOME/workspace/incubator-asterixdb/` and `$HOME/workspace/incubator-asterixdb-hyracks/`.
 
 2. Go to the hyracks and install it's artifacts to the local Maven repository by executing the following commands:
 
@@ -131,7 +131,7 @@ git clone https://github.com/ceejatec/git-gerrit
 
   1. To work on (say) Asterix, first clone the Google Code repository (if you already have a local clone, great!).
 ```
-git clone https://code.google.com/p/asterixdb
+git clone https://github.com/apache/incubator-asterixdb
 ```
   1. `cd` into the clone repo directory, and then run the following command to create the "gerrit" remote.
 ```
