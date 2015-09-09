@@ -12,11 +12,12 @@ Apache AsterixDB strives to support an open and transparent development process.
 Most AsterixDB and Hyracks related discussion takes place on these mailing lists. To subscribe, send a blank email to the subscription address.
 
 {:.table .table-striped .table-bordered}
-| Name     | Address                                   | Subscribe Address                                | Archives |
-|----------|-------------------------------------------|--------------------------------------------------|----------|
-| dev      | dev@asterixdb.incubator.apache.org        | dev-subscribe@asterixdb.incubator.apache.org     | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-dev/)|
-| users    | users@asterixdb.incubator.apache.org      | users-subscribe@asterixdb.incubator.apache.org   | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-users/)|
-| commits  | commits@asterixdb.incubator.apache.org    | commits-subscribe@asterixdb.incubator.apache.org | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-commits/)|
+| Name          | Address                                   | Subscribe Address                                | Archives |
+|---------------|----------------------------------------------|--------------------------------------------------------|----------|
+| dev           | dev@asterixdb.incubator.apache.org           | dev-subscribe@asterixdb.incubator.apache.org           | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-dev/)|
+| users         | users@asterixdb.incubator.apache.org         | users-subscribe@asterixdb.incubator.apache.org         | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-users/)|
+| commits       | commits@asterixdb.incubator.apache.org       | commits-subscribe@asterixdb.incubator.apache.org       | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-commits/)|
+| notifications | notifications@asterixdb.incubator.apache.org | notifications-subscribe@asterixdb.incubator.apache.org | [link](https://mail-archives.apache.org/mod_mbox/incubator-asterixdb-notifications/)|
 
 ### IRC
 
@@ -33,7 +34,7 @@ Some of the developers hang out in #asterixdb on irc.freenode.net. Feel free to 
 |                                                                                   | Name              | Organization  | Apache ID     |
 |-----------------------------------------------------------------------------------|-------------------|---------------|---------------|
 |<img src="{{ site.url }}/img/team/michael_carey.jpg" width="100" height="100">     | Michael Carey     | UC Irvine     | dtabass       |
-|<img src="{{ site.url }}/img/team/till_westmann.jpg"  width="100" height="100">    | Till Westmann     | Oracle Labs   | tillw         |
+|<img src="{{ site.url }}/img/team/till_westmann.jpg"  width="100" height="100">    | Till Westmann     | Couchbase     | tillw         |
 |<img src="{{ site.url }}/img/team/vinayak_borkar.jpg"  width="100" height="100">   | Vinayak Borkar    | X15 Software  | vborkar       |
 |<img src="{{ site.url }}/img/team/vassilis_tsotras.jpg" width="100" height="100">  | Vassilis Tsotras  | UC Riverside  | tsotras       |
 |<img src="{{ site.url }}/img/team/chen_li.jpg"  width="100" height="100">          | Chen Li           | UC Irvine     | chenli        |
